@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investimento Inteligente — Conquiste Sua Liberdade Financeira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A2240;
+    --navy-soft:#12325C;
+    --gold:#C9A227;
+    --green:#2F8F5B;
+    --paper:#F6F3EC;
+    --ink:#1B1F27;
+    --ink-soft:#57606f;
+    --white:#FFFFFF;
+    --line: rgba(255,255,255,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    line-height:1.15;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--gold); display:inline-block;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-family:'Inter', sans-serif;
+    font-weight:700;
+    font-size:15px;
+    padding:16px 30px;
+    border-radius:6px;
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--navy);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(201,162,39,0.35);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--white);
+    border:1px solid var(--line);
+  }
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
+  .btn:focus-visible{outline:3px solid var(--green); outline-offset:2px;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    background:
+      radial-gradient(1100px 500px at 85% -10%, rgba(201,162,39,0.16), transparent 60%),
+      linear-gradient(180deg, var(--navy) 0%, var(--navy-soft) 100%);
+    color:var(--white);
+    padding:120px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(34px, 4.6vw, 56px);
+    color:var(--white);
+    margin:18px 0 22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold);
+  }
+  .hero p.lead{
+    font-size:18px;
+    color:rgba(255,255,255,0.78);
+    max-width:520px;
+    margin-bottom:34px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-line{
+    position:relative;
+    height:280px;
+  }
+  .growth-caption{
+    margin-top:14px;
+    font-size:12px;
+    color:rgba(255,255,255,0.5);
+    text-align:right;
+  }
+  #growthPath{
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    animation:draw 2.4s ease forwards .4s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  /* ---------- SECTION shells ---------- */
+  section{padding:96px 0;}
+  .section-dark{background:var(--navy); color:var(--white);}
+  .section-title{
+    font-size:clamp(28px, 3.4vw, 40px);
+    max-width:640px;
+    margin:14px 0 16px;
+  }
+  .section-sub{
+    color:var(--ink-soft);
+    max-width:560px;
+    font-size:16px;
+  }
+  .section-dark .section-sub{color:rgba(255,255,255,0.68);}
+  .section-head{margin-bottom:52px;}
+
+  /* ---------- QUIZ ---------- */
+  #quiz-section{background:var(--paper);}
+  .quiz-card{
+    background:var(--white);
+    border:1px solid #e7e2d6;
+    border-radius:14px;
+    padding:44px;
+    box-shadow:0 30px 60px -30px rgba(10,34,64,0.18);
+    max-width:680px;
+    margin:0 auto;
+  }
+  .quiz-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:26px;
+  }
+  .quiz-progress-label{font-size:13px; color:var(--ink-soft);}
+  .quiz-progress-track{
+    position:relative;
+    height:46px;
+    margin-bottom:30px;
+  }
+  #quizLine{
+    stroke-dasharray:1000;
+    stroke-dashoffset:1000;
+    transition:stroke-dashoffset .5s ease;
+  }
+  .quiz-dot{transition:fill .25s ease, r .25s ease;}
+  .q-title{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--green);
+    font-family:'IBM Plex Mono', monospace;
+    margin-bottom:10px;
+  }
+  .q-text{
+    font-family:'Fraunces', serif;
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:26px;
+  }
+  .options{display:flex; flex-direction:column; gap:10px;}
+  .option{
+    text-align:left;
+    padding:16px 18px;
+    border:1.5px solid #e2ddd0;
+    border-radius:8px;
+    background:var(--paper);
+    cursor:pointer;
+    font-size:15px;
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    transition:border-color .15s ease, background .15s ease, transform .1s ease;
+  }
+  .option:hover{border-color:var(--gold); background:#fbf7ec;}
+  .option.selected{border-color:var(--green); background:#eef7f1;}
+  .option:focus-visible{outline:3px solid var(--green); outline-offset:2px;}
+  .quiz-nav{
+    display:flex;
+    justify-content:space-between;
+    margin-top:28px;
+  }
+  .link-btn{
+    background:none; border:none; cursor:pointer;
+    color:var(--ink-soft); font-size:14px; font-weight:600;
+    font-family:'Inter', sans-serif;
+  }
+  .link-btn:disabled{opacity:0.3; cursor:not-allowed;}
+
+  .result-badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:6px 12px;
+    border-radius:100px;
+    background:#eef7f1;
+    color:var(--green);
+    margin-bottom:16px;
+  }
+  .result-title{font-size:30px; margin-bottom:14px;}
+  .result-text{color:var(--ink-soft); margin-bottom:28px; font-size:16px;}
+  .hidden{display:none !important;}
+
+  .result-price-box{
+    background:var(--paper);
+    border:1px solid #e2ddd0;
+    border-radius:10px;
+    padding:18px 20px;
+    margin-bottom:24px;
+  }
+  .result-price-row{display:flex; align-items:baseline; gap:12px;}
+  .result-price-new{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:28px;
+    color:var(--green);
+  }
+  .result-price-note{font-size:12.5px; color:var(--ink-soft); margin-top:6px;}
+
+  /* ---------- BENEFITS ---------- */
+  .benefit-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:#e2ddd0;
+    border:1px solid #e2ddd0;
+    border-radius:12px;
+    overflow:hidden;
+  }
+  .benefit{
+    background:var(--white);
+    padding:32px 28px;
+  }
+  .benefit .num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--gold);
+    font-size:13px;
+    margin-bottom:14px;
+  }
+  .benefit h3{font-size:18px; margin-bottom:8px;}
+  .benefit p{color:var(--ink-soft); font-size:14.5px;}
+
+  /* ---------- CURRICULUM ---------- */
+  .curriculum{max-width:760px;}
+  .module{
+    display:grid;
+    grid-template-columns:56px 1fr;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .module:first-child{border-top:1px solid var(--line);}
+  .module .idx{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--gold);
+    font-size:15px;
+    padding-top:2px;
+  }
+  .module h4{font-size:17px; color:var(--white); margin-bottom:4px; font-family:'Inter'; font-weight:600;}
+  .module p{color:rgba(255,255,255,0.62); font-size:14px;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .disclaimer{
+    font-size:13px;
+    color:var(--ink-soft);
+    background:#fbf7ec;
+    border:1px dashed #d8c98a;
+    padding:14px 18px;
+    border-radius:8px;
+    margin-bottom:36px;
+    max-width:720px;
+  }
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .testi{
+    background:var(--white);
+    border:1px solid #e7e2d6;
+    border-radius:12px;
+    padding:28px;
+  }
+  .testi .stars{color:var(--gold); font-size:14px; margin-bottom:14px;}
+  .testi p.quote{font-size:15px; margin-bottom:18px; color:var(--ink);}
+  .testi .who{font-size:13px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- OFFER ---------- */
+  #offer{
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-soft) 100%);
+    color:var(--white);
+  }
+  .offer-card{
+    background:var(--white);
+    color:var(--ink);
+    border-radius:16px;
+    max-width:920px;
+    margin:0 auto;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:44px;
+  }
+  .price-row{display:flex; align-items:baseline; gap:14px; margin:18px 0 6px;}
+  .price-old{
+    font-family:'IBM Plex Mono', monospace;
+    text-decoration:line-through;
+    color:var(--ink-soft);
+    font-size:18px;
+  }
+  .price-new{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:44px;
+    color:var(--green);
+  }
+  .price-note{font-size:13px; color:var(--ink-soft); margin-bottom:22px;}
+  .countdown{
+    display:flex;
+    gap:10px;
+    margin:20px 0 26px;
+  }
+  .cd-box{
+    background:var(--navy);
+    color:var(--white);
+    border-radius:8px;
+    padding:12px 14px;
+    text-align:center;
+    min-width:64px;
+  }
+  .cd-box .n{font-family:'IBM Plex Mono', monospace; font-size:22px; font-weight:500;}
+  .cd-box .l{font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.6);}
+  .bonus-list{list-style:none; margin:22px 0; padding:0;}
+  .bonus-list li{
+    display:flex; gap:10px; align-items:flex-start;
+    font-size:14.5px; margin-bottom:10px; color:var(--ink-soft);
+  }
+  .bonus-list li::before{content:"+"; color:var(--green); font-weight:700;}
+
+  .qr-panel{
+    background:var(--paper);
+    border:1px solid #e2ddd0;
+    border-radius:12px;
+    padding:26px;
+    text-align:center;
+  }
+  .qr-box{
+    width:180px; height:180px;
+    margin:0 auto 16px;
+    background:var(--white);
+    border:1.5px solid #d8d2c2;
+    border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .qr-panel p.instr{font-size:13px; color:var(--ink-soft); text-align:left; margin-top:14px;}
+  .qr-panel p.instr strong{color:var(--ink);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--navy);
+    color:rgba(255,255,255,0.55);
+    padding:44px 0;
+    text-align:center;
+    font-size:13px;
+  }
+  footer strong{color:var(--white);}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-line{display:none;}
+    .benefit-grid, .testi-grid{grid-template-columns:1fr;}
+    .offer-card{grid-template-columns:1fr; padding:30px;}
+    section{padding:64px 0;}
+    .quiz-card{padding:28px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Método de 90 dias</span>
+      <h1>Pare de deixar seu dinheiro <em>perder valor</em> parado na poupança.</h1>
+      <p class="lead">Um passo a passo direto ao ponto para quem quer aprender a investir com clareza e construir liberdade financeira — mesmo começando do zero.</p>
+      <div class="hero-ctas">
+        <a href="#quiz-section" class="btn btn-primary">Descobrir meu perfil de investidor →</a>
+        <a href="#offer" class="btn btn-ghost">Ver a oferta</a>
+      </div>
+    </div>
+    <div class="hero-line">
+      <svg viewBox="0 0 320 280" width="100%" height="280">
+        <line x1="0" y1="230" x2="320" y2="230" stroke="rgba(255,255,255,0.12)"/>
+        <line x1="0" y1="150" x2="320" y2="150" stroke="rgba(255,255,255,0.12)"/>
+        <line x1="0" y1="70" x2="320" y2="70" stroke="rgba(255,255,255,0.12)"/>
+        <path id="growthPath" d="M10,220 C60,215 70,190 100,175 C140,155 150,120 190,95 C225,73 240,60 310,20"
+          fill="none" stroke="#C9A227" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="310" cy="20" r="5" fill="#C9A227"/>
+      </svg>
+      <p class="growth-caption mono">carteira simulada · 90 dias de método</p>
+    </div>
+  </div>
+</header>
+
+<!-- ================= QUIZ ================= -->
+<section id="quiz-section">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">2 minutos</span>
+      <h2 class="section-title" style="margin-left:auto;margin-right:auto;">Qual é o seu perfil de investidor?</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;">Responda 10 perguntas rápidas e descubra por onde começar.</p>
+    </div>
+
+    <div class="quiz-card">
+      <!-- progress -->
+      <div class="quiz-top">
+        <span class="quiz-progress-label mono" id="qLabel">Pergunta 1 de 10</span>
+        <span class="quiz-progress-label mono" id="qPercent">10%</span>
+      </div>
+      <div class="quiz-progress-track">
+        <svg viewBox="0 0 400 46" width="100%" height="46" preserveAspectRatio="none">
+          <line x1="10" y1="30" x2="390" y2="30" stroke="#e2ddd0" stroke-width="2"/>
+          <line id="quizLine" x1="10" y1="30" x2="390" y2="30" stroke="#2F8F5B" stroke-width="2"/>
+          <g id="dotsGroup"></g>
+        </svg>
+      </div>
+
+      <!-- question -->
+      <div id="questionView">
+        <div class="q-title mono" id="qEyebrow">PERGUNTA 01</div>
+        <div class="q-text" id="qText"></div>
+        <div class="options" id="qOptions"></div>
+      </div>
+
+      <!-- result -->
+      <div id="resultView" class="hidden">
+        <span class="result-badge" id="resultBadge">Perfil</span>
+        <h3 class="result-title" id="resultTitle"></h3>
+        <p class="result-text" id="resultText"></p>
+
+        <div class="result-price-box" id="resultPriceBox">
+          <div class="result-price-row">
+            <span class="price-old mono" id="resultPriceOld">R$ 49,90</span>
+            <span class="result-price-new" id="resultPriceNew">R$ 29,90</span>
+          </div>
+          <p class="result-price-note" id="resultPriceNote">Oferta válida até 10/07 · depois o valor volta para R$ 49,90</p>
+        </div>
+
+        <a href="#offer" class="btn btn-primary">Quero começar agora →</a>
+      </div>
+
+      <div class="quiz-nav" id="quizNav">
+        <button class="link-btn" id="btnBack" disabled>← Voltar</button>
+        <button class="link-btn" id="btnRestart" style="display:none;">Refazer quiz</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BENEFÍCIOS ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Por que este curso</span>
+      <h2 class="section-title">Clareza para decidir, não mais uma pilha de teoria</h2>
+      <p class="section-sub">O curso Investimento Inteligente foi desenhado para quem quer sair do achismo e começar a investir com um plano de verdade.</p>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit">
+        <div class="num">01</div>
+        <h3>Comece sem enrolação</h3>
+        <p>Aulas curtas e diretas, sem jargão desnecessário — você aplica o que aprende no mesmo dia.</p>
+      </div>
+      <div class="benefit">
+        <div class="num">02</div>
+        <h3>Monte sua carteira</h3>
+        <p>Um passo a passo prático para diversificar entre renda fixa, ações e fundos imobiliários.</p>
+      </div>
+      <div class="benefit">
+        <div class="num">03</div>
+        <h3>Plano de 90 dias</h3>
+        <p>Metas semanais para sair da teoria e ter uma carteira estruturada em três meses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CURRÍCULO ================= -->
+<section class="section-dark">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Conteúdo do curso</span>
+      <h2 class="section-title">10 módulos, na ordem que você precisa aprender</h2>
+      <p class="section-sub">Cada módulo constrói sobre o anterior — da reserva de emergência até a gestão avançada de carteira.</p>
+    </div>
+    <div class="curriculum">
+      <div class="module"><div class="idx">01</div><div><h4>Educação financeira: mudando sua relação com o dinheiro</h4><p>As crenças que sabotam decisões financeiras — e como reprogramá-las.</p></div></div>
+      <div class="module"><div class="idx">02</div><div><h4>Reserva de emergência</h4><p>Quanto guardar e onde deixar esse dinheiro protegido e líquido.</p></div></div>
+      <div class="module"><div class="idx">03</div><div><h4>Renda fixa na prática</h4><p>CDB, Tesouro Direto, LCI e LCA explicados sem juridiquês.</p></div></div>
+      <div class="module"><div class="idx">04</div><div><h4>Introdução à bolsa e aos fundos imobiliários</h4><p>Como funciona a renda variável e por que ela complementa sua carteira.</p></div></div>
+      <div class="module"><div class="idx">05</div><div><h4>Montando sua carteira de investimentos</h4><p>Um modelo prático de alocação por perfil de risco.</p></div></div>
+      <div class="module"><div class="idx">06</div><div><h4>Metas financeiras de curto, médio e longo prazo</h4><p>Como transformar sonhos em números e prazos concretos.</p></div></div>
+      <div class="module"><div class="idx">07</div><div><h4>Psicologia do investidor</h4><p>Como manter a cabeça fria quando o mercado cai.</p></div></div>
+      <div class="module"><div class="idx">08</div><div><h4>Erros comuns e como evitá-los</h4><p>Os deslizes mais caros que iniciantes cometem — e como não repeti-los.</p></div></div>
+      <div class="module"><div class="idx">09</div><div><h4>Ferramentas e aplicativos</h4><p>O que usar para acompanhar sua carteira sem virar uma obsessão.</p></div></div>
+      <div class="module"><div class="idx">10</div><div><h4>Plano de ação: seus próximos 90 dias</h4><p>O roteiro semana a semana para sair do curso já investindo.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEPOIMENTOS ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Alunos</span>
+      <h2 class="section-title">Quem já passou pelo método</h2>
+    </div>
+    <div class="disclaimer">
+      <strong>Nota de transparência:</strong> os depoimentos abaixo são exemplos ilustrativos de texto para esta página. Antes de publicar, substitua por depoimentos reais de alunos — apresentar depoimentos fictícios como reais pode configurar publicidade enganosa perante o Código de Defesa do Consumidor.
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Antes eu só via meu dinheiro parado na poupança. Hoje já tenho uma carteira diversificada e entendo cada decisão que tomo."</p>
+        <div class="who">[NOME] — [PROFISSÃO]</div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"O curso é direto ao ponto, sem enrolação. Em 3 meses consegui organizar minhas finanças e começar a investir com confiança."</p>
+        <div class="who">[NOME] — [PROFISSÃO]</div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Sempre tive medo de investir. Depois do curso, esse medo virou um plano."</p>
+        <div class="who">[NOME] — [PROFISSÃO]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFERTA ================= -->
+<section id="offer">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">Oferta por tempo limitado</span>
+      <h2 class="section-title" style="margin-left:auto;margin-right:auto; color:#fff;">Comece hoje com 40% de desconto</h2>
+    </div>
+
+    <div class="offer-card">
+      <div>
+        <h3 style="font-size:20px; margin-bottom:6px;">Curso Investimento Inteligente</h3>
+        <p style="color:var(--ink-soft); font-size:14.5px;">Acesso completo aos 10 módulos + bônus, liberado imediatamente após a confirmação do pagamento.</p>
+
+        <div class="price-row">
+          <span class="price-old mono" id="offerPriceOld">R$ 49,90</span>
+          <span class="price-new" id="offerPriceNew">R$ 29,90</span>
+        </div>
+        <p class="price-note" id="offerPriceNote">Pagamento único · acesso vitalício · oferta válida até 10/07</p>
+
+        <div class="countdown mono" id="countdown">
+          <div class="cd-box"><div class="n" id="cd-d">00</div><div class="l">dias</div></div>
+          <div class="cd-box"><div class="n" id="cd-h">00</div><div class="l">horas</div></div>
+          <div class="cd-box"><div class="n" id="cd-m">00</div><div class="l">min</div></div>
+          <div class="cd-box"><div class="n" id="cd-s">00</div><div class="l">seg</div></div>
+        </div>
+
+        <ul class="bonus-list">
+          <li>Planilha de controle de investimentos</li>
+          <li>E-book "10 Erros que Todo Investidor Iniciante Comete"</li>
+          <li>Acesso ao grupo exclusivo de alunos</li>
+        </ul>
+
+        <a href="#" class="btn btn-primary" style="width:100%;">Quero garantir minha vaga com desconto →</a>
+        <p style="font-size:12px; color:var(--ink-soft); margin-top:10px;">Vagas limitadas · garantia de 7 dias, conforme o Código de Defesa do Consumidor.</p>
+      </div>
+
+      <div class="qr-panel">
+        <div class="qr-box">
+          <!-- placeholder de QR code: substitua pela imagem gerada na sua conta Mercado Pago / PicPay -->
+          <svg width="120" height="120" viewBox="0 0 120 120"><rect width="120" height="120" fill="#fff"/><g fill="#0A2240"><rect x="8" y="8" width="28" height="28"/><rect x="84" y="8" width="28" height="28"/><rect x="8" y="84" width="28" height="28"/><rect x="16" y="16" width="12" height="12" fill="#fff"/><rect x="92" y="16" width="12" height="12" fill="#fff"/><rect x="16" y="92" width="12" height="12" fill="#fff"/><rect x="44" y="8" width="8" height="8"/><rect x="60" y="8" width="8" height="8"/><rect x="44" y="24" width="8" height="8"/><rect x="60" y="44" width="8" height="8"/><rect x="76" y="44" width="8" height="8"/><rect x="44" y="60" width="8" height="8"/><rect x="60" y="60" width="8" height="8"/><rect x="76" y="60" width="8" height="8"/><rect x="44" y="76" width="8" height="8"/><rect x="60" y="92" width="8" height="8"/><rect x="76" y="92" width="8" height="8"/><rect x="92" y="76" width="8" height="8"/></g></svg>
+        </div>
+        <div class="mono" style="font-size:12px; color:var(--ink-soft);">ESCANEIE PARA PAGAR VIA PIX</div>
+        <p class="instr">
+          <strong>Como configurar:</strong> gere a cobrança na sua conta Mercado Pago, PicPay ou banco de preferência, baixe o QR code em PNG e substitua a imagem acima. Para liberar o acesso automaticamente após o pagamento, use uma plataforma de infoproduto (Hotmart, Eduzz, Kiwify ou Monetizze) — elas emitem QR Pix, nota fiscal e liberam o curso sem trabalho manual.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Investimento Inteligente</strong> — Conquiste Sua Liberdade Financeira</p>
+    <p style="margin-top:6px;">Este material é educacional e não constitui recomendação de investimento individualizada.</p>
+  </div>
+</footer>
+
+<script>
+/* ============ QUIZ DATA ============ */
+const questions = [
+  { text:"Qual é a sua reação quando o valor de um investimento cai 10% em um mês?",
+    options:[["Fico apavorado e vendo tudo imediatamente",1],["Fico preocupado, mas espero para ver o que acontece",2],["Entendo que é normal e mantenho a posição",3],["Vejo como oportunidade de comprar mais",4]] },
+  { text:"Você já investiu em algum produto financeiro antes?",
+    options:[["Nunca, só poupança",1],["Já tentei CDB ou Tesouro Direto",2],["Já invisto em ações e fundos regularmente",3],["Opero ativamente, incluindo derivativos ou day trade",4]] },
+  { text:"Qual desses termos você conhece bem?",
+    options:[["Nenhum deles",1],["CDI e Selic",2],["P/L, dividend yield, diversificação",3],["Hedge, opções, alavancagem",4]] },
+  { text:"Qual é o seu principal objetivo com investimentos?",
+    options:[["Não perder dinheiro",1],["Guardar para uma reserva de emergência",2],["Fazer o dinheiro crescer a longo prazo",3],["Maximizar retorno mesmo com risco maior",4]] },
+  { text:"Quanto tempo você dedica a estudar sobre finanças por semana?",
+    options:[["Nenhum",1],["Menos de 1 hora",2],["1 a 3 horas",3],["Mais de 3 horas",4]] },
+  { text:"Se tivesse R$ 10.000 hoje, o que faria?",
+    options:[["Deixaria na poupança",1],["Colocaria em Tesouro Direto ou CDB",2],["Montaria uma carteira diversificada",3],["Buscaria ativos de maior risco/retorno",4]] },
+  { text:"Você sabe calcular quanto precisa investir por mês para atingir uma meta financeira?",
+    options:[["Não faço ideia",1],["Tenho uma noção básica",2],["Sim, uso planilhas ou calculadoras",3],["Sim, e ajusto conforme o cenário econômico",4]] },
+  { text:"Como você lida com notícias negativas sobre a economia?",
+    options:[["Fico ansioso e evito olhar meus investimentos",1],["Leio, mas não sei bem como agir",2],["Analiso o impacto real na minha carteira",3],["Busco oportunidades geradas pela volatilidade",4]] },
+  { text:"Você já ouviu falar em diversificação de carteira?",
+    options:[["Não",1],["Já ouvi, mas não sei aplicar",2],["Sim, e já diversifico meus investimentos",3],["Sim, e uso estratégias avançadas de alocação",4]] },
+  { text:"Qual seria seu horizonte de investimento ideal?",
+    options:[["Preciso do dinheiro em poucos meses",1],["1 a 2 anos",2],["3 a 10 anos",3],["Mais de 10 anos — penso em aposentadoria",4]] },
+];
+
+const results = [
+  { min:10, max:17, badge:"Perfil Iniciante 🌱", title:"Você está no começo — e isso é ótimo.",
+    text:"Você está no início da sua jornada financeira. O curso vai te dar a base sólida que faltava para tomar decisões com confiança, começando pela reserva de emergência e pela renda fixa." },
+  { min:18, max:27, badge:"Perfil Moderado 📈", title:"Você já tem noções — hora de estruturar.",
+    text:"Você já entende conceitos importantes, mas ainda falta uma estratégia organizada. O curso vai te ajudar a montar um plano claro e acelerar seus resultados." },
+  { min:28, max:34, badge:"Perfil Avançado 🚀", title:"Você já entende bastante do assunto.",
+    text:"Sua base já é sólida. O curso vai refinar sua estratégia e apresentar técnicas mais sofisticadas de gestão de carteira." },
+  { min:35, max:40, badge:"Perfil Experiente 💎", title:"Você já tem bagagem — hora do upgrade.",
+    text:"Você já investe com propriedade. O curso funciona como um upgrade estratégico, com ferramentas avançadas e uma comunidade de outros investidores." },
+];
+
+let current = 0;
+const answers = new Array(questions.length).fill(null);
+
+const qText = document.getElementById('qText');
+const qOptions = document.getElementById('qOptions');
+const qEyebrow = document.getElementById('qEyebrow');
+const qLabel = document.getElementById('qLabel');
+const qPercent = document.getElementById('qPercent');
+const quizLine = document.getElementById('quizLine');
+const dotsGroup = document.getElementById('dotsGroup');
+const questionView = document.getElementById('questionView');
+const resultView = document.getElementById('resultView');
+const btnBack = document.getElementById('btnBack');
+const btnRestart = document.getElementById('btnRestart');
+const quizNav = document.getElementById('quizNav');
+
+// build progress dots
+const totalDots = questions.length;
+for(let i=0;i<totalDots;i++){
+  const x = 10 + (380/(totalDots-1))*i;
+  const dot = document.createElementNS("http://www.w3.org/2000/svg","circle");
+  dot.setAttribute("cx", x);
+  dot.setAttribute("cy", 30);
+  dot.setAttribute("r", 3.5);
+  dot.setAttribute("fill", "#e2ddd0");
+  dot.classList.add("quiz-dot");
+  dot.id = "dot-"+i;
+  dotsGroup.appendChild(dot);
+}
+
+function renderQuestion(){
+  const q = questions[current];
+  qEyebrow.textContent = "PERGUNTA " + String(current+1).padStart(2,'0');
+  qLabel.textContent = `Pergunta ${current+1} de ${questions.length}`;
+  qPercent.textContent = Math.round(((current+1)/questions.length)*100) + "%";
+  qText.textContent = q.text;
+  qOptions.innerHTML = "";
+
+  q.options.forEach(([label, val], i)=>{
+    const b = document.createElement('button');
+    b.className = 'option';
+    b.type = 'button';
+    b.textContent = label;
+    if(answers[current] === val) b.classList.add('selected');
+    b.addEventListener('click', ()=>{
+      answers[current] = val;
+      renderQuestion();
+      setTimeout(()=>{
+        if(current < questions.length-1){
+          current++;
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      }, 220);
+    });
+    qOptions.appendChild(b);
+  });
+
+  btnBack.disabled = current === 0;
+  updateProgressLine();
+}
+
+function updateProgressLine(){
+  const pct = current/(questions.length-1);
+  const totalLen = 380;
+  quizLine.setAttribute("x2", 10 + totalLen*pct);
+  for(let i=0;i<totalDots;i++){
+    const dot = document.getElementById("dot-"+i);
+    if(i < current || (i===current && answers[current]!==null)){
+      dot.setAttribute("fill", "#2F8F5B");
+      dot.setAttribute("r", 4.5);
+    } else if(i===current){
+      dot.setAttribute("fill", "#C9A227");
+      dot.setAttribute("r", 5);
+    } else {
+      dot.setAttribute("fill", "#e2ddd0");
+      dot.setAttribute("r", 3.5);
+    }
+  }
+}
+
+btnBack.addEventListener('click', ()=>{
+  if(current>0){ current--; renderQuestion(); }
+});
+
+function showResult(){
+  const total = answers.reduce((a,b)=>a+b,0);
+  const r = results.find(r => total>=r.min && total<=r.max) || results[0];
+  document.getElementById('resultBadge').textContent = r.badge;
+  document.getElementById('resultTitle').textContent = r.title;
+  document.getElementById('resultText').textContent = r.text;
+
+  questionView.classList.add('hidden');
+  resultView.classList.remove('hidden');
+  btnBack.classList.add('hidden');
+  btnRestart.style.display = 'inline-block';
+
+  document.querySelectorAll('.quiz-dot').forEach(d=>{ d.setAttribute("fill","#2F8F5B"); d.setAttribute("r",4.5); });
+  quizLine.setAttribute("x2", 390);
+  qLabel.textContent = "Quiz concluído";
+  qPercent.textContent = "100%";
+}
+
+btnRestart.addEventListener('click', ()=>{
+  current = 0;
+  answers.fill(null);
+  questionView.classList.remove('hidden');
+  resultView.classList.add('hidden');
+  btnBack.classList.remove('hidden');
+  btnRestart.style.display = 'none';
+  renderQuestion();
+});
+
+renderQuestion();
+
+/* ============ COUNTDOWN + PREÇO ============ */
+// Oferta válida até 10/07/2026, às 23:59:59 (horário local do visitante) — mesma data para todos os visitantes.
+const OFFER_PRICE = "R$ 29,90";
+const REGULAR_PRICE = "R$ 49,90";
+const target = new Date('2026-07-10T23:59:59').getTime();
+
+function applyExpiredPricing(){
+  // esconde o preço promocional e volta ao valor cheio
+  document.getElementById('offerPriceOld').style.display = 'none';
+  document.getElementById('offerPriceNew').textContent = REGULAR_PRICE;
+  document.getElementById('offerPriceNote').textContent = 'Pagamento único · acesso vitalício';
+  document.getElementById('countdown').style.display = 'none';
+
+  const resultPriceOld = document.getElementById('resultPriceOld');
+  if(resultPriceOld){
+    resultPriceOld.style.display = 'none';
+    document.getElementById('resultPriceNew').textContent = REGULAR_PRICE;
+    document.getElementById('resultPriceNote').textContent = 'Acesso vitalício ao curso';
+  }
+}
+
+function tick(){
+  const now = new Date().getTime();
+  let diff = target - now;
+  if(diff <= 0){
+    applyExpiredPricing();
+    clearInterval(timer);
+    return;
+  }
+  const d = Math.floor(diff/(1000*60*60*24));
+  const h = Math.floor((diff/(1000*60*60))%24);
+  const m = Math.floor((diff/(1000*60))%60);
+  const s = Math.floor((diff/1000)%60);
+  document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+  document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+}
+tick();
+const timer = setInterval(tick, 1000);
+</script>
+</body>
+</html>
